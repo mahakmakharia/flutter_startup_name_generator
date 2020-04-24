@@ -14,9 +14,15 @@ class FavoritesScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('favorites'),
       ),
-      body: ListView.builder(
+      body: favoriteNames.isEmpty
+          ? Center(
+        child: Text('No favorites so far'),
+      )
+          : ListView.builder(
         itemBuilder: (_, index) => ListTile(
-          title: Text(favoriteNames.toList()[index],),
+          title: Text(
+            favoriteNames.toList()[index],
+          ),
         ),
         itemCount: favoriteNames.length,
       ),
